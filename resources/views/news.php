@@ -2,10 +2,12 @@
 include_once 'menu.php';
 ?>
 
-<div>
-    <?php foreach ($news as $item): ?>
+
+<?php foreach ($news as $item): ?>
+    <div>
         <a href="<?=route('NewsOne', $item['id'])?>"><?=$item['title']?></a>
-    <?php endforeach ?>
-</div>
+    </div>
+<?php endforeach ?>
+
 
 

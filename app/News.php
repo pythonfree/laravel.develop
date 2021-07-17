@@ -30,5 +30,6 @@ class News
                 return $article;
             }
         }
+        return 'Новость не найдена';
     }
 }
