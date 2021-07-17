@@ -33,6 +33,8 @@ Route::get('/', 'HomeController@index')->name('Home');
 );*/
 
 Route::get('/admin', 'Admin\IndexController@index')->name('Admin');
+Route::get('/admin/test1', 'Admin\IndexController@test1')->name('test1');
+Route::get('/admin/test2', 'Admin\IndexController@test2')->name('test2');
 //Route::get('/admin',
 //    [
 //        'uses' => 'Admin\IndexController@index',
