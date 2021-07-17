@@ -32,9 +32,31 @@ Route::get('/', 'HomeController@index')->name('Home');
     ]
 );*/
 
-Route::get('/admin', 'Admin\IndexController@index')->name('Admin');
-Route::get('/admin/test1', 'Admin\IndexController@test1')->name('test1');
-Route::get('/admin/test2', 'Admin\IndexController@test2')->name('test2');
+
+/*
+|--------------------------------------------------------------------------
+| Админка
+|--------------------------------------------------------------------------
+|
+| Функции админа
+|
+*/
+Route::group([
+    'prefix' => 'admin',
+    'namespace' => 'Admin',
+    'as' => 'admin.'
+], function () {
+    Route::get('/', 'IndexController@index')->name('index');
+    Route::get('/test1', 'IndexController@test1')->name('test1');
+    Route::get('/test2', 'IndexController@test2')->name('test2');
+});
+
+/*Route::get('/admin', 'Admin\IndexController@index')->name('admin.index');
+Route::get('/admin/test1', 'Admin\IndexController@test1')->name('admin.test1');
+Route::get('/admin/test2', 'Admin\IndexController@test2')->name('admin.test2');*/
+
+
+
 //Route::get('/admin',
 //    [
 //        'uses' => 'Admin\IndexController@index',
