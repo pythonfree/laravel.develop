@@ -12,6 +12,14 @@
 */
 
 
+Route::get('/news/{id}', 'NewsController@show')->name('NewsOne');
+Route::get('/news', 'NewsController@index')->name('News');
+
+
+/*Route::get('/news/{id}', function($id) {
+    dd($id);
+});*/
+
 
 
 //Route::get('/', 'HomeController@index');
