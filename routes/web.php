@@ -12,6 +12,8 @@
 */
 
 
+$a = 1;
+
 Route::get('/news/{id}', 'NewsController@show')->name('NewsOne');
 Route::get('/news', 'NewsController@index')->name('News');
 

@@ -6,12 +6,12 @@ namespace App;
 class News
 {
     private static $news = [
-        [
+        1 => [
             'id' => 1,
             'title' => 'First article 1',
             'text' => 'This id a good article 1'
         ],
-        [
+        2 => [
             'id' => 2,
             'title' => 'Second article 2',
             'text' => 'This is a good article 2'
@@ -30,6 +30,5 @@ class News
                 return $article;
             }
         }
-        return 'Новость не найдена';
     }
 }
