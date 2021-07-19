@@ -1,7 +1,13 @@
-@include('menu')
+@extends('layouts.main')
 
-@php
-    //dump(222);
-@endphp
+@section('title')
+    @parent | Главная
+@endsection
 
-Добро пожаловать!!!!!!
+@section('menu')
+    @include('menu')
+@endsection
+
+@section('content')
+    Добро пожаловать!!!!!!
+@endsection

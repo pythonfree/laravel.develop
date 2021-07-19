@@ -1,3 +1,13 @@
-@include('admin.menu')
+@extends('layouts.main')
 
-<p>Test 1</p>
+@section('title')
+    @parent Test 1
+@endsection
+
+@section('menu')
+    @include('admin.menu')
+@endsection
+
+@section('content')
+    <p>Test 1</p>
+@endsection

@@ -11,11 +11,20 @@
 |
 */
 
+Route::group([
+    'prefix' => 'news',
+    'as' => 'news.'
+], function(){
+    Route::get('/', 'NewsController@index')->name('index');
+    Route::get('/one/{name}', 'NewsController@show')->name('show');
+    Route::group([
+        'as' => 'category.'
+    ], function(){
+        Route::get('/categories', 'CategoryController@index')->name('index');
+        Route::get('/category/{id}', 'CategoryController@show')->name('show');
+    });
+});
 
-$a = 1;
-
-Route::get('/news/{id}', 'NewsController@show')->name('NewsOne');
-Route::get('/news', 'NewsController@index')->name('News');
 
 
 /*Route::get('/news/{id}', function($id) {
