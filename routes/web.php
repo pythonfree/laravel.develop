@@ -62,6 +62,10 @@ Route::group([
     Route::get('/test2', 'IndexController@test2')->name('test2');
 });
 
+
+Route::view('/vue', 'vue')->name('vue');
+
+
 /*Route::get('/admin', 'Admin\IndexController@index')->name('admin.index');
 Route::get('/admin/test1', 'Admin\IndexController@test1')->name('admin.test1');
 Route::get('/admin/test2', 'Admin\IndexController@test2')->name('admin.test2');*/
