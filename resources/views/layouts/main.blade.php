@@ -8,7 +8,8 @@
 </head>
 <body>
 
-{{$menu}}
+
+{{--{!! $menu !!}--}}
 
 @yield('menu')
 @yield('content')
