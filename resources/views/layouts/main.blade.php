@@ -7,6 +7,9 @@
     <meta name="csrf-token" content="{{csrf_token()}}">
 </head>
 <body>
+
+{{$menu}}
+
 @yield('menu')
 @yield('content')
 <script src="{{asset('js/app.js')}}"></script>
