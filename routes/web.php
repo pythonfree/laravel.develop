@@ -87,3 +87,9 @@ Route::get('/admin/test2', 'Admin\IndexController@test2')->name('admin.test2');*
 //    info('1111');
     return view('index');
 });*/
+
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/newsCrud', 'Test');
