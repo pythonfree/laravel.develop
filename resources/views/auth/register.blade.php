@@ -1,4 +1,11 @@
-@extends('layouts.app')
+@extends('layouts.main')
+
+@section('title', 'Регистрация')
+
+
+@section('menu')
+    @include('menu')
+@endsection
 
 @section('content')
 <div class="container">
