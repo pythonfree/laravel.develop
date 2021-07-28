@@ -27,14 +27,15 @@
                             <div class="form-group">
                                 <label for="newsTitle">Название новости</label>
                                 <input type="text" name="title" class="form-control"
-                                id="newsTitle" value="">
+                                id="newsTitle" value="{{old('title')}}">
                             </div>
                             <div class="form-group">
                                 <label for="newsCategory">Категория новости</label>
                                 <select name="category" class="form-control" id="newsCategory"
                                 >
                                     @forelse($categories as $item)
-                                        <option value="{{$item['id']}}">
+                                        <option @if ($item['id'] == old('category')) selected @endif
+                                            value="{{$item['id']}}">
                                             {{$item['category']}}
                                         </option>
                                     @empty
@@ -46,11 +47,12 @@
                                 <label for="newsText">Текс новости</label>
                                 <textarea name="text" id="newsText" cols="5" rows="5"
                                 class="form-control">
-
+                                    {{old('text')}}
                                 </textarea>
                             </div>
                             <div class="form-check">
-                                <input type="checkbox" name="isPrivate" class="form-check-input"
+                                <input @if (1 == old('isPrivate')) checked @endif
+                                    type="checkbox" name="isPrivate" class="form-check-input"
                                 value="1" id="newsPrivate">
                                 <label for="newsPrivate" class="form-check-label">
                                     Новость private?

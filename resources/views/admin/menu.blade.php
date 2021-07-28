@@ -7,7 +7,11 @@
         Добавить новость
     </a>
 </li>
-<li class="nav-item{{request()->routeIs('admin.test2')?' active':''}}">
-    <a class="nav-link" href="{{ route('admin.test2') }}">
-        Test2</a>
+<li class="nav-item{{request()->routeIs('admin.downloadImage')?' active':''}}">
+    <a class="nav-link" href="{{ route('admin.downloadImage') }}">
+        Скачать изображение</a>
+</li>
+<li class="nav-item{{request()->routeIs('admin.json')?' active':''}}">
+    <a class="nav-link" href="{{ route('admin.json') }}">
+        Скачать Json</a>
 </li>

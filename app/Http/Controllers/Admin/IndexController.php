@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Category;
+use App\Models\News;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -16,15 +17,25 @@ class IndexController extends Controller
     public function create(Request $request)
     {
         if ($request->isMethod('post')) {
-            dd($request);
+            $request->flash();
+            return redirect()->route('admin.create');
         }
+        //dump($request->old());
         return view('admin.create', [
             'categories' => Category::getCategories()
         ]);
     }
 
-    public function test2()
+    public function json()
     {
-        return view('admin.test2');
+        return response()->json(News::getNews())
+            ->header('Content-Disposition',
+                'attachment; filename = "json.txt"')
+            ->setEncodingOptions(JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
+    }
+
+    public function downloadImage()
+    {
+        return response()->download('elsa_1.gif');
     }
 }
