@@ -17,6 +17,13 @@
 
                         <form method="POST" action="{{route('admin.create')}}">
                             @csrf
+
+{{--                            {{Form::label('newsTitle', 'Название новости')}}
+                            {{Form::text('title', 'Заголовок', [
+                                'class' => 'form-control',
+                                'id' => 'newsTitle'
+                            ])}}--}}
+
                             <div class="form-group">
                                 <label for="newsTitle">Название новости</label>
                                 <input type="text" name="title" class="form-control"
