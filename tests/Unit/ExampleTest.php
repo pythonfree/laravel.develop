@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Models\News;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
@@ -14,6 +15,8 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
+        //$news = new News();
+        $this->assertIsArray(News::getNews());
         $this->assertTrue(true);
     }
 }
