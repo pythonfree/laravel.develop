@@ -1,0 +1,12 @@
+{
+    "1": {
+        "id": 1,
+        "category": "SPORT",
+        "name": "sport"
+    },
+    "2": {
+        "id": 2,
+        "category": "ART",
+        "name": "art"
+    }
+}

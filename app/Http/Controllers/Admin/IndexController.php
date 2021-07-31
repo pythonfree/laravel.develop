@@ -24,6 +24,7 @@ class IndexController extends Controller
         return view('admin.create', [
             'categories' => Category::getCategories()
         ]);
+        //return view('admin.create')->with('categories', Category::getCategories());
     }
 
     public function json()

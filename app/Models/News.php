@@ -3,9 +3,11 @@
 namespace App\Models;
 
 
+use Illuminate\Support\Facades\File;
+
 class News
 {
-    private static $news = [
+    public static $news = [
         1 => [
             'id' => 1,
             'title' => 'Article SPORT 1 (private)',
@@ -38,12 +40,14 @@ class News
 
     public static function getNews()
     {
-        return static::$news;
+//        return static::$news;
+        return json_decode(File::get(storage_path() . '/news.json'), true);
     }
 
     public static function getNewsId($id)
     {
-        return static::$news[$id];
+//        return static::$news[$id];
+        return json_decode(File::get(storage_path() . '/news.json'), true)[$id];
     }
 
     public static function getNewsByCategoryName($name)
