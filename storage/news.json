@@ -30,5 +30,13 @@
         "isPrivate": false,
         "image": null,
         "category_id": 2
+    },
+    "5": {
+        "title": null,
+        "category_id": 1,
+        "text": null,
+        "image": "\/storage\/images\/ETv35cC405GbrbgmLEqWfbgxwUXqXrNh1baB2g9P.png",
+        "isPrivate": false,
+        "id": 5
     }
 }

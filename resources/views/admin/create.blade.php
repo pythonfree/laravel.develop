@@ -15,7 +15,7 @@
                     <div class="card-header">Dashboard</div>
                     <div class="card-body">
 
-                        <form method="POST" action="{{route('admin.create')}}">
+                        <form enctype="multipart/form-data" method="POST" action="{{route('admin.create')}}">
                             @csrf
 
 {{--                            {{Form::label('newsTitle', 'Название новости')}}
@@ -47,6 +47,11 @@
                                 <label for="newsText">Текс новости</label>
                                 <textarea name="text" id="newsText" cols="5" rows="5" class="form-control">{{old('text')}}</textarea>
                             </div>
+
+                            <div class="form-group">
+                                <input type="file" name="image">
+                            </div>
+
                             <div class="form-check">
                                 <input @if (1 == old('isPrivate')) checked @endif
                                     type="checkbox" name="isPrivate" class="form-check-input"

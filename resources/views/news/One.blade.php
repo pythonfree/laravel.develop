@@ -16,6 +16,8 @@
                     <div class="card-body">
                         @if (!$article['isPrivate'])
                             <h3>{{ $article['title'] }}</h3>
+                            <div class="card-img" style="background-image: url({{$article['image'] ?? asset('storage/default.jpg')}})">
+                            </div>
                             <p>{{ $article['text']  }}</p>
                         @else
                             Новость приватная, зарегистрируйтесь.

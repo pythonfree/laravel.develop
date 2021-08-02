@@ -7,6 +7,7 @@ use App\Models\News;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use Storage;
 
 class IndexController extends Controller
 {
@@ -20,12 +21,20 @@ class IndexController extends Controller
         if ($request->isMethod('post')) {
             //$request->flash();
 
+
+            $url = null;
+            if ($request->file('image')) {
+                $path = Storage::putFile('public/images', $request->file('image'));
+                $url = Storage::url($path);
+            }
+
             $data = News::getNews();
 
             $data[] = [
                 'title' => $request->title,
                 'category_id' => $request->category,
                 'text' => $request->text,
+                'image' => $url,
                 'isPrivate' => isset($request->isPrivate)
             ];
             $id = array_key_last($data);
