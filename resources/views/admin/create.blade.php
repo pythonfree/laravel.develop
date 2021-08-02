@@ -45,10 +45,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="newsText">Текс новости</label>
-                                <textarea name="text" id="newsText" cols="5" rows="5"
-                                class="form-control">
-                                    {{old('text')}}
-                                </textarea>
+                                <textarea name="text" id="newsText" cols="5" rows="5" class="form-control">{{old('text')}}</textarea>
                             </div>
                             <div class="form-check">
                                 <input @if (1 == old('isPrivate')) checked @endif

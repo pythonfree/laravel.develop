@@ -13,6 +13,7 @@ class News
             'title' => 'Article SPORT 1 (private)',
             'text' => 'This id a good article SPORT 1',
             'isPrivate' => true,
+            'image' => null,
             'category_id' => 1
         ],
         2 => [
@@ -20,6 +21,7 @@ class News
             'title' => 'Article SPORT 2',
             'text' => 'This id a good article SPORT 2',
             'isPrivate' => false,
+            'image' => null,
             'category_id' => 1
         ],
         3 => [
@@ -27,6 +29,7 @@ class News
             'title' => 'Article ART 1',
             'text' => 'This is a good article ART 1',
             'isPrivate' => false,
+            'image' => null,
             'category_id' => 2
         ],
         4 => [
@@ -34,6 +37,7 @@ class News
             'title' => 'Article ART 2',
             'text' => 'This is a good article ART 2',
             'isPrivate' => false,
+            'image' => null,
             'category_id' => 2
         ]
     ];
@@ -55,7 +59,7 @@ class News
         $id = Category::getCategoryIdByName($name);
 
         $news = [];
-        foreach (static::$news as $article) {
+        foreach (static::getNews() as $article) {
             if ($id == $article['category_id']) {
                 $news[] = $article;
             }
