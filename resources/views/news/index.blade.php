@@ -19,7 +19,7 @@
                             <div class="card-img" style="background-image: url({{$item->image ?? asset('storage/default.jpg')}})">
                             </div>
                             @if (!$item->isPrivate)
-                                <a href="{{ route('news.show', $item->id) }}">Подробнее...</a>
+                                <a href="{{ route('news.show', $item) }}">Подробнее...</a>
                             @endif
                             <hr>
                         @empty

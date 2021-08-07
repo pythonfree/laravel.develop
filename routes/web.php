@@ -16,12 +16,12 @@ Route::group([
     'as' => 'news.'
 ], function(){
     Route::get('/', 'NewsController@index')->name('index');
-    Route::get('/one/{name}', 'NewsController@show')->name('show');
+    Route::get('/one/{news}', 'NewsController@show')->name('show');
     Route::group([
         'as' => 'category.'
     ], function(){
         Route::get('/categories', 'CategoryController@index')->name('index');
-        Route::get('/category/{id}', 'CategoryController@show')->name('show');
+        Route::get('/category/{name}', 'CategoryController@show')->name('show');
     });
 });
 
