@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\News;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Storage;
 
@@ -28,31 +29,24 @@ class IndexController extends Controller
                 $url = Storage::url($path);
             }
 
-            $data = News::getNews();
 
             $data[] = [
                 'title' => $request->title,
-                'category_id' => $request->category,
+                //'category_id' => $request->category,
                 'text' => $request->text,
                 'image' => $url,
                 'isPrivate' => isset($request->isPrivate)
             ];
-            $id = array_key_last($data);
-            $data[$id]['id'] = $id;
+            DB::table('news')->insert($data);
 
-            File::put(storage_path() . '/news.json', json_encode($data,
-                JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT | JSON_NUMERIC_CHECK));
 
             return redirect()->route('admin.index')->with('success',
                 'Новость успешно добавлена!');
         }
 
-
-        //dump($request->old());
         return view('admin.create', [
-            'categories' => Category::getCategories()
+            'categories' => []
         ]);
-        //return view('admin.create')->with('categories', Category::getCategories());
     }
 
     public function json()
