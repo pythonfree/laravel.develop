@@ -25,6 +25,7 @@
                         @empty
                             'No news!'
                         @endforelse
+                        {{$news->links()}}
                     </div>
                 </div>
             </div>

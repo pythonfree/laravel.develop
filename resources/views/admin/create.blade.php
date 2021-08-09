@@ -18,12 +18,6 @@
                         <form enctype="multipart/form-data" method="POST" action="{{route('admin.create')}}">
                             @csrf
 
-{{--                            {{Form::label('newsTitle', 'Название новости')}}
-                            {{Form::text('title', 'Заголовок', [
-                                'class' => 'form-control',
-                                'id' => 'newsTitle'
-                            ])}}--}}
-
                             <div class="form-group">
                                 <label for="newsTitle">Название новости</label>
                                 <input type="text" name="title" class="form-control"
@@ -61,8 +55,13 @@
                                 </label>
                             </div>
                             <div class="form-group">
-                                <input type="submit" class="btn btn-outline-primary"
-                                value="Добавить новость" id="addNews">
+                                <button type="submit" class="form-control">
+                                    @if ($news->id)
+                                        Изменить
+                                    @else
+                                        Добавить
+                                    @endif
+                                </button>
                             </div>
 
                         </form>

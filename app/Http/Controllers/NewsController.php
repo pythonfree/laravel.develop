@@ -13,8 +13,9 @@ class NewsController extends Controller
         //$news = News::all();
         $news = News::query()
             ->where('isPrivate', false)
-            ->get();
-        //dd($news);
+//            ->get();
+            ->paginate(3);
+
         return view('news.index')->with('news', $news);
     }
 
