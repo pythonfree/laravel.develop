@@ -28,6 +28,12 @@ class NewsController extends Controller
         ]);
     }
 
+    public function destroy(News $news)
+    {
+        $news->delete();
+        return redirect()->route('admin.index')->with('success', 'Новость успешно  удалена!');
+    }
+
     public function update(Request $request, News $news)
     {
         if ($request->isMethod('post')) {
