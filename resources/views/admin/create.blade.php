@@ -15,13 +15,13 @@
                     <div class="card-header">Dashboard</div>
                     <div class="card-body">
 
-                        <form enctype="multipart/form-data" method="POST" action="{{route('admin.create')}}">
+                        <form enctype="multipart/form-data" method="POST" action="@if(!$news->id){{route('admin.create')}}@else{{route('admin.update', $news)}}@endif">
                             @csrf
 
                             <div class="form-group">
                                 <label for="newsTitle">Название новости</label>
                                 <input type="text" name="title" class="form-control"
-                                id="newsTitle" value="{{old('title')}}">
+                                id="newsTitle" value="{{$news->title ?? old('title')}}">
                             </div>
                             <div class="form-group">
                                 <label for="newsCategory">Категория новости</label>
@@ -39,7 +39,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="newsText">Текс новости</label>
-                                <textarea name="text" id="newsText" cols="5" rows="5" class="form-control">{{old('text')}}</textarea>
+                                <textarea name="text" id="newsText" cols="5" rows="5" class="form-control">{{$news->text ?? old('text')}}</textarea>
                             </div>
 
                             <div class="form-group">
@@ -47,7 +47,7 @@
                             </div>
 
                             <div class="form-check">
-                                <input @if (1 == old('isPrivate')) checked @endif
+                                <input @if (1 == $news->isPrivate || 1 == old('isPrivate')) checked @endif
                                     type="checkbox" name="isPrivate" class="form-check-input"
                                 value="1" id="newsPrivate">
                                 <label for="newsPrivate" class="form-check-label">
